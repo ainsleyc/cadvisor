@@ -1,3 +1,16 @@
+// Copyright 2014 Google Inc. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 function humanize(num, size, units) {
   var unit;
@@ -13,6 +26,7 @@ function humanizeIEC(num) {
   return ret[0].toFixed(2) + ' ' + ret[1];
 }
 // Following the Metric naming convention
+
 function humanizeMetric(num) {
   var ret = humanize(num, 1000, ['TB', 'GB', 'MB', 'KB', 'Bytes']);
   return ret[0].toFixed(2) + ' ' + ret[1];
@@ -110,8 +124,8 @@ function drawLineChart(seriesTitles, data, elementId, unit) {
   };
   // If the whole data series has the same value, try to center it in the chart.
   if (min == max) {
-    opts.vAxis.viewWindow.max = 1.1 * max
-    opts.vAxis.viewWindow.min = 0.9 * max
+    opts.vAxis.viewWindow.max = 1.1 * max;
+    opts.vAxis.viewWindow.min = 0.9 * max;
   }
 
   window.charts[elementId].draw(dataTable, opts);
@@ -215,7 +229,6 @@ function drawCpuLoad(elementId, machineInfo, stats) {
   }
   drawLineChart(titles, data, elementId, 'Runnable threads');
 }
-
 
 // Draw the graph for per-core CPU usage.
 function drawCpuPerCoreUsage(elementId, machineInfo, stats) {
@@ -523,7 +536,7 @@ function drawProcesses(isRoot, rootDir, processInfo) {
     'string', 'number', 'number', 'string', 'number', 'number', 'number',
     'number', 'string', 'string', 'string'
   ];
-  var sortIndex = 4
+  var sortIndex = 4;
   if (isRoot) {
     titles.push('Container');
     titleTypes.push('string');
@@ -552,7 +565,7 @@ function drawProcesses(isRoot, rootDir, processInfo) {
     elements.push(processInfo[i].running_time);
     elements.push(processInfo[i].cmd);
     if (isRoot) {
-      var cgroup = processInfo[i].cgroup_path
+      var cgroup = processInfo[i].cgroup_path;
       // Use the raw cgroup link as it works for all containers.
       var cgroupLink = '<a href="' + rootDir + 'containers/' + cgroup + '">' +
           cgroup.substr(0, 30) + ' </a>';
@@ -626,7 +639,7 @@ function drawCharts(machineInfo, containerInfo) {
 
   if (containerInfo.spec.has_cpu || containerInfo.spec.has_memory) {
     steps.push(function() {
-      drawOverallUsage('usage-gauge', machineInfo, containerInfo)
+      drawOverallUsage('usage-gauge', machineInfo, containerInfo);
     });
   }
 
@@ -678,7 +691,7 @@ function drawCharts(machineInfo, containerInfo) {
           window.cadvisor.rootDir, window.cadvisor.containerName,
           function(metricsInfo) {
             drawCustomMetrics(
-                'custom-metrics-chart', containerInfo, metricsInfo)
+              'custom-metrics-chart', containerInfo, metricsInfo);
           });
     });
   }
@@ -783,7 +796,7 @@ function addAllLabels(containerInfo, metricsInfo) {
 
 function getMetricIndex(metricName) {
   for (i = 0; i < window.cadvisor.metricLabelPair.length; ++i) {
-    if (window.cadvisor.metricLabelPair[i][0] == metricName) return i;
+    if (window.cadvisor.metricLabelPair[i][0] == metricName) { return i; }
   }
   return -1;
 }
@@ -792,7 +805,7 @@ function setLabel(metric, label) {
   $('#' + metric + '-selection-text')
       .empty()
       .append($('<span>').text('Label: '))
-      .append($('<b>').text(label))
+      .append($('<b>').text(label));
 
   index = getMetricIndex(metric);
   if (index == -1) {
@@ -806,7 +819,7 @@ function setLabel(metric, label) {
 
 function getSelectedLabel(metricName) {
   index = getMetricIndex(metricName);
-  if (index == -1) return '';
+  if (index == -1) { return ''; }
   return window.cadvisor.metricLabelPair[index][1];
 }
 
@@ -815,23 +828,25 @@ function startCustomMetrics(elementId, containerInfo) {
   var metricStats = containerInfo.stats.custom_metrics;
   var el = $('<div>');
 
-  if (metricSpec.length < window.cadvisor.maxCustomMetrics)
-    window.cadvisor.maxCustomMetrics = metricSpec.length
+  if (metricSpec.length < window.cadvisor.maxCustomMetrics) {
+    window.cadvisor.maxCustomMetrics = metricSpec.length;
     for (i = 0; i < window.cadvisor.maxCustomMetrics; i++) {
       metricName = metricSpec[i].name;
       var divText =
-          '<div class=\'dropdown\'> <button class=\'btn btn-default dropdown-toggle\' type=\'button\' id=\'button-' +
-          metricName;
+          '<div class=\'dropdown\'> <button class=\'btn btn-default' +
+          ' dropdown-toggle\' type=\'button\' id=\'button-' + metricName;
       divText +=
-          '\' data-toggle=\'dropdown\' aria-haspopup=\'true\' aria-expanded=\'false\'>';
+          '\' data-toggle=\'dropdown\' aria-haspopup=\'true\'' +
+          ' aria-expanded=\'false\'>';
       divText += '<span id=\'' + metricName +
           '-selection-text\'></span> <span class=\'caret\'></span> </button>';
       divText += '<ul id=\'' + metricName +
-          '_labels\' class=\'dropdown-menu\' role=\'menu\' aria-labelledby=\'button-' +
-          metricName + '\'> </ul> </div>';
+          '_labels\' class=\'dropdown-menu\' role=\'menu\'' +
+          ' aria-labelledby=\'button-' + metricName + '\'> </ul> </div>';
       divText += '<div id=\'' + elementId + '-' + metricName + '\'> </div>';
       el.append($(divText));
     }
+  }
   el.append($('</div>'));
 
   $('#' + elementId).append(el);
@@ -898,11 +913,11 @@ function startPage(containerName, hasCpu, hasMemory, rootDir, isRoot) {
 
   // Draw process information at start and refresh every 60s.
   getProcessInfo(rootDir, containerName, function(processInfo) {
-    drawProcesses(isRoot, rootDir, processInfo)
+    drawProcesses(isRoot, rootDir, processInfo);
   });
   setInterval(function() {
     getProcessInfo(rootDir, containerName, function(processInfo) {
-      drawProcesses(isRoot, rootDir, processInfo)
+      drawProcesses(isRoot, rootDir, processInfo);
     });
   }, 60000);
 

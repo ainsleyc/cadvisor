@@ -16,5 +16,12 @@
 
 GIT_ROOT=$(dirname "${BASH_SOURCE}")/..
 
-go get -u github.com/jteeuwen/go-bindata/...
-go-bindata -o $GIT_ROOT/pages/static/assets.go -pkg static $GIT_ROOT/assets/...
+for f in $GIT_ROOT/pages/assets/**/*
+do
+  if [ "$f" -nt $GIT_ROOT/pages/static/assets.go ]
+  then
+    go get -u github.com/jteeuwen/go-bindata/...
+    go-bindata -o $GIT_ROOT/pages/static/assets.go -pkg static $GIT_ROOT/pages/assets/...
+    exit 0
+  fi
+done

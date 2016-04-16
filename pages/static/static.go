@@ -26,15 +26,15 @@ import (
 
 const StaticResource = "/static/"
 
-var bootstrapJs, _ = Asset("assets/js/bootstrap-3.1.1.min.js")
-var containersJs, _ = Asset("assets/js/containers.js")
-var gchartsJs, _ = Asset("assets/js/gcharts.js")
-var googleJsapiJs, _ = Asset("assets/js/google-jsapi.js")
-var jqueryJs, _ = Asset("assets/js/jquery-1.10.2.min.js")
+var bootstrapJs, _ = Asset("pages/assets/js/bootstrap-3.1.1.min.js")
+var containersJs, _ = Asset("pages/assets/js/containers.js")
+var gchartsJs, _ = Asset("pages/assets/js/gcharts.js")
+var googleJsapiJs, _ = Asset("pages/assets/js/google-jsapi.js")
+var jqueryJs, _ = Asset("pages/assets/js/jquery-1.10.2.min.js")
 
-var bootstrapCss, _ = Asset("assets/styles/bootstrap-3.1.1.min.css")
-var bootstrapThemeCss, _ = Asset("assets/styles/bootstrap-theme-3.1.1.min.css")
-var containersCss, _ = Asset("assets/styles/containers.css")
+var bootstrapCss, _ = Asset("pages/assets/styles/bootstrap-3.1.1.min.css")
+var bootstrapThemeCss, _ = Asset("pages/assets/styles/bootstrap-theme-3.1.1.min.css")
+var containersCss, _ = Asset("pages/assets/styles/containers.css")
 
 var staticFiles = map[string][]byte{
 	"bootstrap-3.1.1.min.css":       bootstrapCss,
