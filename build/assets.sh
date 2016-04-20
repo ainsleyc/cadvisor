@@ -16,10 +16,23 @@
 
 GIT_ROOT=$(dirname "${BASH_SOURCE}")/..
 
-for f in $GIT_ROOT/pages/assets/**/*; do
-  if [ "$f" -nt $GIT_ROOT/pages/static/assets.go ]; then
-    go get -u github.com/jteeuwen/go-bindata/...
-    go-bindata -o $GIT_ROOT/pages/static/assets.go -pkg static $GIT_ROOT/pages/assets/...
-    exit $?
+STATUS=0
+
+go get -u github.com/jteeuwen/go-bindata/...
+
+for f in $GIT_ROOT/pages/assets/html/*; do
+  if [ "$f" -nt $GIT_ROOT/pages/templates.go ]; then
+    go-bindata -o $GIT_ROOT/pages/templates.go -pkg pages $GIT_ROOT/pages/assets/html/... || STATUS=$?
+    break
   fi
 done
+
+for f in $GIT_ROOT/pages/assets/js/* $GIT_ROOT/pages/assets/styles/*; do
+  if [ "$f" -nt $GIT_ROOT/pages/static/assets.go ]; then
+    go-bindata -o $GIT_ROOT/pages/static/assets.go -pkg static $GIT_ROOT/pages/assets/js/... $GIT_ROOT/pages/assets/styles/... || STATUS=$?
+    break
+  fi
+done
+
+exit $STATUS
+

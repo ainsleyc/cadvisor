@@ -90,7 +90,7 @@ func pagesAssetsJsBootstrap311MinJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "pages/assets/js/bootstrap-3.1.1.min.js", size: 29111, mode: os.FileMode(416), modTime: time.Unix(1461010378, 0)}
+	info := bindataFileInfo{name: "pages/assets/js/bootstrap-3.1.1.min.js", size: 29111, mode: os.FileMode(416), modTime: time.Unix(1461181483, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -110,7 +110,7 @@ func pagesAssetsJsContainersJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "pages/assets/js/containers.js", size: 28944, mode: os.FileMode(416), modTime: time.Unix(1461010395, 0)}
+	info := bindataFileInfo{name: "pages/assets/js/containers.js", size: 28944, mode: os.FileMode(416), modTime: time.Unix(1461188073, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -130,7 +130,7 @@ func pagesAssetsJsGchartsJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "pages/assets/js/gcharts.js", size: 696697, mode: os.FileMode(416), modTime: time.Unix(1461010378, 0)}
+	info := bindataFileInfo{name: "pages/assets/js/gcharts.js", size: 696697, mode: os.FileMode(416), modTime: time.Unix(1461181483, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -150,7 +150,7 @@ func pagesAssetsJsGoogleJsapiJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "pages/assets/js/google-jsapi.js", size: 24553, mode: os.FileMode(416), modTime: time.Unix(1461010378, 0)}
+	info := bindataFileInfo{name: "pages/assets/js/google-jsapi.js", size: 24553, mode: os.FileMode(416), modTime: time.Unix(1461181483, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -170,7 +170,7 @@ func pagesAssetsJsJquery1102MinJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "pages/assets/js/jquery-1.10.2.min.js", size: 93100, mode: os.FileMode(416), modTime: time.Unix(1461010378, 0)}
+	info := bindataFileInfo{name: "pages/assets/js/jquery-1.10.2.min.js", size: 93100, mode: os.FileMode(416), modTime: time.Unix(1461181483, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -190,7 +190,7 @@ func pagesAssetsStylesBootstrap311MinCss() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "pages/assets/styles/bootstrap-3.1.1.min.css", size: 99962, mode: os.FileMode(416), modTime: time.Unix(1461010378, 0)}
+	info := bindataFileInfo{name: "pages/assets/styles/bootstrap-3.1.1.min.css", size: 99962, mode: os.FileMode(416), modTime: time.Unix(1461181483, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -210,7 +210,7 @@ func pagesAssetsStylesBootstrapTheme311MinCss() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "pages/assets/styles/bootstrap-theme-3.1.1.min.css", size: 13186, mode: os.FileMode(416), modTime: time.Unix(1461010378, 0)}
+	info := bindataFileInfo{name: "pages/assets/styles/bootstrap-theme-3.1.1.min.css", size: 13186, mode: os.FileMode(416), modTime: time.Unix(1461181483, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -230,7 +230,7 @@ func pagesAssetsStylesContainersCss() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "pages/assets/styles/containers.css", size: 132720, mode: os.FileMode(416), modTime: time.Unix(1461010378, 0)}
+	info := bindataFileInfo{name: "pages/assets/styles/containers.css", size: 132720, mode: os.FileMode(416), modTime: time.Unix(1461188084, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
